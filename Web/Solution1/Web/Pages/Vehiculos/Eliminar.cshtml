@@ -1,0 +1,50 @@
+﻿@page "{id:guid}"
+@model Web.Pages.Vehiculos.EliminarModel
+
+<section class="hero-vehiculos">
+    <div class="contenido">
+        <p>SC-701: Programación Web Avanzada</p>
+        <h1>EXAMEN VEHICULO</h1>
+    </div>
+</section>
+
+<section class="seccion-blanca">
+
+    <div class="container">
+
+        <div class="titulo-seccion">
+            <h2>ELIMINAR VEHICULO</h2>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+
+        <div class="eliminar-box">
+
+            <p><b>Marca:</b> @Model.Vehiculo.Marca</p>
+            <p><b>Modelo:</b> @Model.Vehiculo.Modelo</p>
+            <p><b>Placa:</b> @Model.Vehiculo.Placa</p>
+            <p><b>Anio:</b> @Model.Vehiculo.Anio</p>
+            <p><b>Color:</b> @Model.Vehiculo.Color</p>
+            <p><b>CorreoPropietario:</b> @Model.Vehiculo.CorreoPropietario</p>
+            <p><b>TelefonoPropietario:</b> @Model.Vehiculo.Telefono</p>
+
+            <form method="post">
+
+                <div class="botones-final">
+
+                    <a asp-page="Index" class="btn btn-info text-white">
+                        Cancelar
+                    </a>
+
+                    <button class="btn btn-danger">
+                        Eliminar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>

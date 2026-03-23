@@ -1,0 +1,54 @@
+﻿@page "{id:guid}"
+@model Web.Pages.Vehiculos.DetalleModel
+
+<section class="hero-vehiculos">
+    <div class="contenido">
+        <p>SC-701: Programación Web Avanzada</p>
+        <h1>EXAMEN VEHICULO</h1>
+    </div>
+</section>
+
+<section class="seccion-blanca">
+    <div class="container">
+
+        <div class="titulo-seccion">
+            <h2>DETALLE DE LA VEHICULO</h2>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+
+        <div class="detalle-card">
+
+            <div class="detalle-contenido">
+
+                <img src="/img/carro.png" class="detalle-img" />
+
+                <div class="detalle-info">
+
+                    <h5>@Model.Vehiculo.Marca @Model.Vehiculo.Modelo</h5>
+
+                    <p><b>Placa:</b> @Model.Vehiculo.Placa</p>
+                    <p><b>Anio:</b> @Model.Vehiculo.Anio</p>
+                    <p><b>Precio:</b> @Model.Vehiculo.Precio</p>
+                    <p>@Model.Vehiculo.CorreoPropietario</p>
+                    <p>@Model.Vehiculo.Telefono</p>
+
+                </div>
+
+            </div>
+
+            <div class="botones-final">
+
+                <a asp-page="Index" class="btn btn-info text-white">
+                    Regresar
+                </a>
+
+                <a asp-page="Editar" asp-route-id="@Model.Vehiculo.Id" class="btn btn-primary">
+                    Editar
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>

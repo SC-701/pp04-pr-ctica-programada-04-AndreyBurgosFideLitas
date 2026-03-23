@@ -1,0 +1,16 @@
+﻿
+CREATE   PROCEDURE [dbo].[EliminarVehiculo]
+(
+    @Id UNIQUEIDENTIFIER
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN TRANSACTION;
+
+    DELETE FROM dbo.Vehiculo
+    WHERE Id = @Id;
+
+    SELECT @Id AS Id;
+    COMMIT TRANSACTION;
+END

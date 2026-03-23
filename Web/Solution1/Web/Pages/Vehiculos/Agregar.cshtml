@@ -1,0 +1,65 @@
+﻿@page
+@model Web.Pages.Vehiculos.AgregarModel
+
+<section class="hero-vehiculos">
+    <div class="contenido">
+        <p>SC-701: Programación Web Avanzada</p>
+        <h1>EJERCICIO VEHICULO</h1>
+    </div>
+</section>
+
+<section class="seccion-blanca">
+    <div class="container">
+        <div class="titulo-seccion">
+            <h2>AGREGAR VEHICULO</h2>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+
+        <form method="post" class="form-vehiculo">
+            <label>Marca</label>
+            <select asp-for="IdMarca" asp-items="Model.Marcas" class="form-select" onchange="cambiarMarca(this.value)">
+                <option value="">Seleccione una marca</option>
+            </select>
+
+            <label>Modelo</label>
+            <select asp-for="IdModelo" asp-items="Model.Modelos" class="form-select">
+                <option value="">Seleccione un modelo</option>
+            </select>
+
+            <label>Placa</label>
+            <input asp-for="Vehiculo.Placa" class="form-control" />
+
+            <label>Precio</label>
+            <input asp-for="Vehiculo.Precio" class="form-control" />
+
+            <label>Anio</label>
+            <input asp-for="Vehiculo.Anio" class="form-control" />
+
+            <label>Color</label>
+            <input asp-for="Vehiculo.Color" class="form-control" />
+
+            <label>CorreoPropietario</label>
+            <input asp-for="Vehiculo.CorreoPropietario" class="form-control" />
+
+            <label>Telefono</label>
+            <input asp-for="Vehiculo.Telefono" class="form-control" />
+
+            <div class="botones-final">
+                <a asp-page="/Vehiculos/Index" class="btn btn-info text-white">Regresar</a>
+                <button class="btn btn-success" type="submit">Agregar</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        function cambiarMarca(idMarca) {
+            if (idMarca) {
+                window.location.href = '/Vehiculos/Agregar?idMarca=' + idMarca;
+            } else {
+                window.location.href = '/Vehiculos/Agregar';
+            }
+        }
+    </script>
+}

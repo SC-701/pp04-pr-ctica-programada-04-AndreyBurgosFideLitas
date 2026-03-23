@@ -1,0 +1,40 @@
+﻿@page
+@model Web.Pages.Vehiculos.IndexModel
+
+<section class="hero-vehiculos">
+    <div class="contenido">
+        <p>SC-701: Programación Web Avanzada</p>
+        <h1>LISTADO DE VEHICULOS</h1>
+    </div>
+</section>
+
+<section class="seccion-blanca">
+    <div class="container">
+        <div class="titulo-seccion">
+            <h2>LISTADO DE VEHICULOS</h2>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+
+        <div class="text-center mb-4">
+            <a asp-page="/Vehiculos/Agregar" class="btn btn-success">Agregar</a>
+        </div>
+
+        <div class="cards-vehiculos">
+            @foreach (var item in Model.Vehiculos)
+            {
+                <div class="card-vehiculo">
+                    <h5>@item.Marca @item.Modelo</h5>
+                    <p>@item.Anio</p>
+                    <p>@item.Placa</p>
+                    <p>@item.Id</p>
+
+                    <div class="acciones">
+                        <a asp-page="/Vehiculos/Detalle" asp-route-id="@item.Id" class="btn btn-info btn-sm text-white">Detalle</a>
+                        <a asp-page="/Vehiculos/Editar" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Editar</a>
+                        <a asp-page="/Vehiculos/Eliminar" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
