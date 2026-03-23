@@ -1,7 +1,27 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Reglas;
+using Vehiculo.Abstracciones.Interfaces.Reglas;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
 builder.Services.AddHttpClient();
+
+builder.Services.AddScoped<IConfiguracion, Configuracion>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Seguridad/Login";
+        options.AccessDeniedPath = "/Seguridad/AccesoDenegado";
+    });
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -15,13 +35,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSession();
+app.UseAuthentication();
 app.UseAuthorization();
-app.MapGet("/", context =>
-{
-    context.Response.Redirect("/Vehiculos");
-    return Task.CompletedTask;
-});
+
+app.MapGet("/", () => Results.Redirect("/Seguridad/Login"));
 app.MapRazorPages();
 
 app.Run();

@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Producto.Abstracciones.Interfaces.Reglas;
+using Vehiculo.Abstracciones.Interfaces.Reglas;
 using Vehiculo.Abstracciones.Modelos;
 
 namespace Reglas
